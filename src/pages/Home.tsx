@@ -261,10 +261,10 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Why Use PetCalc Pro */}
+      {/* Why Use Pet Calculator */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-2 mb-12">
-          <h2 className="text-3xl font-black text-slate-900 dark:text-white">Why Use PetCalc Pro</h2>
+          <h2 className="text-3xl font-black text-slate-900 dark:text-white">Why Use Pet Calculator</h2>
           <p className="text-slate-500 dark:text-slate-400">A professional suite optimized for high-authority pet care calculations.</p>
         </div>
 
@@ -421,7 +421,7 @@ export const Home: React.FC = () => {
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center space-y-2">
           <h2 className="text-3xl font-black text-slate-900 dark:text-white">Frequently Asked Questions</h2>
-          <p className="text-slate-500 dark:text-slate-400">Everything you need to know about the PetCalc Pro platform.</p>
+          <p className="text-slate-500 dark:text-slate-400">Everything you need to know about the Pet Calculator platform.</p>
         </div>
 
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 md:p-8 shadow-sm divide-y divide-slate-100 dark:divide-slate-800">

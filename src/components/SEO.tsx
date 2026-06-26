@@ -26,7 +26,7 @@ export const SEO: React.FC<SEOProps> = ({
 }) => {
   useEffect(() => {
     // Title
-    document.title = `${title} | PetCalc Pro`;
+    document.title = `${title} | Pet Calculator`;
 
     // Meta Description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -44,7 +44,7 @@ export const SEO: React.FC<SEOProps> = ({
       ogTitle.setAttribute('property', 'og:title');
       document.head.appendChild(ogTitle);
     }
-    ogTitle.setAttribute('content', `${title} | PetCalc Pro`);
+    ogTitle.setAttribute('content', `${title} | Pet Calculator`);
 
     // Open Graph Description
     let ogDesc = document.querySelector('meta[property="og:description"]');
@@ -120,7 +120,7 @@ export const SEO: React.FC<SEOProps> = ({
             },
             'publisher': {
               '@type': 'Organization',
-              'name': 'PetCalc Pro',
+              'name': 'Pet Calculator',
               'logo': {
                 '@type': 'ImageObject',
                 'url': 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=150&h=150&fit=crop'
@@ -133,7 +133,7 @@ export const SEO: React.FC<SEOProps> = ({
           schemaObject = {
             '@context': 'https://schema.org',
             '@type': 'Organization',
-            'name': 'PetCalc Pro',
+            'name': 'Pet Calculator',
             'url': window.location.origin,
             'logo': 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=150&h=150&fit=crop',
             'description': 'Smart Dog & Cat Care Calculator Suite'

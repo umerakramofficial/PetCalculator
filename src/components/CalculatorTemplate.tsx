@@ -95,7 +95,7 @@ export const CalculatorTemplate: React.FC<CalculatorTemplateProps> = ({ config }
 
   const handleCopyResults = () => {
     const resultsText = results.map(r => `${r.label}: ${r.value} ${r.unit || ''}`).join('\n');
-    const textToCopy = `--- PetCalc Pro Results ---\nTool: ${config.name}\n${resultsText}\nCalculate yours at: ${window.location.href}`;
+    const textToCopy = `--- Pet Calculator Results ---\nTool: ${config.name}\n${resultsText}\nCalculate yours at: ${window.location.href}`;
     navigator.clipboard.writeText(textToCopy);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);

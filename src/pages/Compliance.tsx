@@ -30,12 +30,12 @@ export const Compliance: React.FC = () => {
 
   if (path === '/about') {
     title = 'About Us';
-    metaDesc = 'Learn about the editorial values and veterinary guidelines behind PetCalc Pro.';
+    metaDesc = 'Learn about the editorial values and veterinary guidelines behind Pet Calculator.';
     content = (
       <div className="space-y-6">
         <h2 className="text-2xl font-black text-slate-900 dark:text-white">Our Mission & Values</h2>
         <p className="text-slate-655 text-sm dark:text-slate-350 leading-relaxed">
-          PetCalc Pro is a premier, veterinary-aligned authority platform designed to provide dog and cat owners with precise calculator utilities and educational guides. We believe that caring for pets should be backed by science, not guess-work.
+          Pet Calculator is a premier, veterinary-aligned authority platform designed to provide dog and cat owners with precise calculator utilities and educational guides. We believe that caring for pets should be backed by science, not guess-work.
         </p>
         <p className="text-slate-655 text-sm dark:text-slate-350 leading-relaxed">
           Our suite of 20 focus calculators integrates standard veterinary clinical benchmarks from the American Animal Hospital Association (AAHA), the American Association of Feline Practitioners (AAFP), and nutritional standards from the National Research Council (NRC).
@@ -54,7 +54,7 @@ export const Compliance: React.FC = () => {
     );
   } else if (path === '/contact') {
     title = 'Contact Us';
-    metaDesc = 'Get in touch with the editorial team at PetCalc Pro.';
+    metaDesc = 'Get in touch with the editorial team at Pet Calculator.';
     content = (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-6">
@@ -65,11 +65,11 @@ export const Compliance: React.FC = () => {
           <div className="space-y-3 text-sm text-slate-655 dark:text-slate-350 pt-2">
             <div className="flex items-center space-x-2">
               <Mail className="h-4 w-4 text-indigo-500" />
-              <span>support@petcalc.pro</span>
+              <span>support@petcalculator.online</span>
             </div>
             <div className="flex items-center space-x-2">
               <Globe className="h-4 w-4 text-indigo-500" />
-              <span>www.petcalc.pro</span>
+              <span>www.petcalculator.online</span>
             </div>
             <div className="flex items-center space-x-2">
               <MapPin className="h-4 w-4 text-indigo-500" />
@@ -133,12 +133,12 @@ export const Compliance: React.FC = () => {
     );
   } else if (path === '/privacy-policy') {
     title = 'Privacy Policy';
-    metaDesc = 'Review how PetCalc Pro safeguards user data.';
+    metaDesc = 'Review how Pet Calculator safeguards user data.';
     content = (
       <div className="space-y-6">
         <h2 className="text-xl font-bold text-slate-900 dark:text-white">1. Information Collection & Storage</h2>
         <p className="text-slate-655 text-sm dark:text-slate-350 leading-relaxed">
-          PetCalc Pro does not maintain external user accounts, logins, or database records. Any calculation configurations, pet profiles, or favorited items you enter are stored purely on your local browser (utilizing local storage). We do not collect, transmit, or sell this information.
+          Pet Calculator does not maintain external user accounts, logins, or database records. Any calculation configurations, pet profiles, or favorited items you enter are stored purely on your local browser (utilizing local storage). We do not collect, transmit, or sell this information.
         </p>
         <h2 className="text-xl font-bold text-slate-900 dark:text-white">2. Browser Cookies</h2>
         <p className="text-slate-655 text-sm dark:text-slate-350 leading-relaxed">
@@ -148,16 +148,16 @@ export const Compliance: React.FC = () => {
     );
   } else if (path === '/terms-conditions') {
     title = 'Terms & Conditions';
-    metaDesc = 'Read our conditions of service for using PetCalc Pro.';
+    metaDesc = 'Read our conditions of service for using Pet Calculator.';
     content = (
       <div className="space-y-6">
         <h2 className="text-xl font-bold text-slate-900 dark:text-white">1. Service Provision</h2>
         <p className="text-slate-655 text-sm dark:text-slate-350 leading-relaxed">
-          By accessing PetCalc Pro, you agree to comply with our terms of service. Our tools, calculations, and resources are provided "as-is" without warranty.
+          By accessing Pet Calculator, you agree to comply with our terms of service. Our tools, calculations, and resources are provided "as-is" without warranty.
         </p>
         <h2 className="text-xl font-bold text-slate-900 dark:text-white">2. Limitation of Liability</h2>
         <p className="text-slate-655 text-sm dark:text-slate-350 leading-relaxed">
-          We do not guarantee the completeness or accuracy of any calculator outputs. PetCalc Pro and its affiliates will not be held liable for any health decisions, actions, or damages resulting from the use of this website.
+          We do not guarantee the completeness or accuracy of any calculator outputs. Pet Calculator and its affiliates will not be held liable for any health decisions, actions, or damages resulting from the use of this website.
         </p>
       </div>
     );
@@ -170,7 +170,7 @@ export const Compliance: React.FC = () => {
           Veterinary Medical Disclaimer
         </h2>
         <p className="text-slate-655 text-sm dark:text-slate-350 leading-relaxed">
-          The content, calculations, schedules, and tips provided throughout PetCalc Pro are for informational and educational purposes only. They are not intended as a substitute for professional veterinary advice, diagnoses, clinical assessments, or treatment plans.
+          The content, calculations, schedules, and tips provided throughout Pet Calculator are for informational and educational purposes only. They are not intended as a substitute for professional veterinary advice, diagnoses, clinical assessments, or treatment plans.
         </p>
         <p className="text-slate-655 text-sm dark:text-slate-350 leading-relaxed">
           Every pet has unique medical parameters. Always consult with a licensed veterinarian before changing your pet’s diet, feeding portions, exercise schedules, or vaccination timelines.
@@ -179,12 +179,12 @@ export const Compliance: React.FC = () => {
     );
   } else if (path === '/cookie-policy') {
     title = 'Cookie Policy';
-    metaDesc = 'Information regarding browser cookie utilization on PetCalc Pro.';
+    metaDesc = 'Information regarding browser cookie utilization on Pet Calculator.';
     content = (
       <div className="space-y-6">
         <h2 className="text-xl font-bold text-slate-900 dark:text-white">What Are Cookies?</h2>
         <p className="text-slate-655 text-sm dark:text-slate-350 leading-relaxed">
-          Cookies are small text files stored in your browser to log preferences. PetCalc Pro uses them minimally to handle configurations (theme, unit conversions).
+          Cookies are small text files stored in your browser to log preferences. Pet Calculator uses them minimally to handle configurations (theme, unit conversions).
         </p>
         <h2 className="text-xl font-bold text-slate-900 dark:text-white">Third-Party Analytics and Ads</h2>
         <p className="text-slate-655 text-sm dark:text-slate-350 leading-relaxed">

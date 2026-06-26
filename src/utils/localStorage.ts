@@ -101,14 +101,14 @@ export const setUnitSystemSetting = (system: 'metric' | 'imperial') => {
 };
 
 // Language
-export const getLanguage = (): 'en' | 'de' | 'fr' | 'es' | 'it' | 'ja' => {
+export const getLanguage = (): 'en' | 'de' | 'fr' | 'es' | 'it' | 'pl' => {
   const saved = localStorage.getItem('petcalc_language');
-  if (saved === 'en' || saved === 'de' || saved === 'fr' || saved === 'es' || saved === 'it' || saved === 'ja') {
+  if (saved === 'en' || saved === 'de' || saved === 'fr' || saved === 'es' || saved === 'it' || saved === 'pl') {
     return saved;
   }
   return 'en';
 };
 
-export const setLanguageSetting = (lang: 'en' | 'de' | 'fr' | 'es' | 'it' | 'ja') => {
+export const setLanguageSetting = (lang: 'en' | 'de' | 'fr' | 'es' | 'it' | 'pl') => {
   localStorage.setItem('petcalc_language', lang);
 };

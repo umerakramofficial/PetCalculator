@@ -61,7 +61,7 @@ export const Navbar: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 text-indigo-600 dark:text-indigo-400 font-bold text-xl tracking-tight">
             <PawPrint className="h-6 w-6 text-indigo-600 dark:text-indigo-400 animate-bounce" />
-            <span>PetCalc<span className="text-slate-900 dark:text-white">Pro</span></span>
+            <span>Pet <span className="text-slate-900 dark:text-white">Calculator</span></span>
           </Link>
 
           {/* Desktop Nav Links */}

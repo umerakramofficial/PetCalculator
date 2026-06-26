@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-2 space-y-4">
             <Link to="/" className="flex items-center space-x-2 text-white font-bold text-xl tracking-tight">
               <PawPrint className="h-6 w-6 text-indigo-400" />
-              <span>PetCalc<span className="text-indigo-400">Pro</span></span>
+              <span>Pet <span className="text-indigo-400">Calculator</span></span>
             </Link>
             <p className="text-sm text-slate-400 max-w-sm">
               {t('footer_tagline')}
@@ -108,7 +108,7 @@ export const Footer: React.FC = () => {
             <Link to="/contact" className="hover:text-white transition-colors">{t('footer_contact')}</Link>
           </div>
           <div className="flex items-center space-x-1 text-slate-500">
-            <span>&copy; {currentYear} PetCalc Pro. Created with</span>
+            <span>&copy; {currentYear} Pet Calculator. Created with</span>
             <Heart className="h-3 w-3 text-rose-500 fill-rose-500" />
             <span>for dogs and cats.</span>
           </div>

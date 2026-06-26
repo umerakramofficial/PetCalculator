@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from 'react';
 import { getLanguage, setLanguageSetting } from '../utils/localStorage';
 import { translations } from '../utils/translations';
 
-type Language = 'en' | 'de' | 'fr' | 'es' | 'it' | 'ja';
+type Language = 'en' | 'de' | 'fr' | 'es' | 'it' | 'pl';
 
 interface LanguageContextType {
   language: Language;
