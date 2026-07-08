@@ -209,7 +209,7 @@ For more detailed support on training schedules and behavior management, refer t
       role: 'Chief Veterinary Officer',
       avatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=800&h=450&fit=crop',
+    coverImage: '/images/family-dog.jpg',
     content: `
 ## What Makes a Breed "Family-Friendly"?
 
@@ -325,7 +325,7 @@ Select the perfect breed for your specific lifestyle parameters using the [Dog B
       role: 'Pet Nutritionist',
       avatar: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?w=800&h=450&fit=crop',
+    coverImage: '/images/dog-grooming.jpg',
     content: `
 ## Why Grooming is Essential for Canine Wellness
 
@@ -414,7 +414,7 @@ Calculate your dog's maintenance and hydration needs using our [Dog Care Calcula
       role: 'Pet Nutritionist',
       avatar: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: 'https://images.unsplash.com/photo-1537151608828-ea2b117b6b86?w=800&h=450&fit=crop',
+    coverImage: '/images/dog-shedding.jpg',
     content: `
 ## The Natural Shedding Cycle of Dogs
 
@@ -501,7 +501,7 @@ Calculate your dog's exact calorie and hydration guidelines using the [Dog Calor
       role: 'Feline Specialist',
       avatar: 'https://images.unsplash.com/photo-1594824813573-246434de83fb?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&h=450&fit=crop',
+    coverImage: '/images/apartment-dogs.jpg',
     content: `
 ## What Makes a Dog Good for Apartment Living?
 
