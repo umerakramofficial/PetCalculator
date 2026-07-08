@@ -15,7 +15,7 @@ export const blogArticles: BlogArticle[] = [
       role: 'Chief Veterinary Officer',
       avatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=800&h=450&fit=crop',
+    coverImage: '/images/dog-hair-clothes.jpg',
     content: `
 ## The Physics of Pet Hair Adhesion
 
@@ -117,7 +117,7 @@ For a detailed analysis of your dog's daily shedding and grooming needs, check o
       role: 'Chief Veterinary Officer',
       avatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&h=450&fit=crop',
+    coverImage: '/images/dog-training-collars.jpg',
     content: `
 ## Training Collars: Communication vs. Control
 

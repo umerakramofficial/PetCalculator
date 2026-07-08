@@ -1,17 +1,80 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ShieldCheck, Sparkles, HelpCircle, ArrowRight, Activity, BookOpen, Star, Flame, Lock } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ShieldCheck, Sparkles, HelpCircle, ArrowRight, Activity, BookOpen, Star, Flame, Lock, ChevronDown, Droplet, Calendar } from 'lucide-react';
 import { allCalculators } from '../data/calculators';
 import { blogArticles } from '../data/blog';
 import { petGuides } from '../data/guides';
 import { SEO } from '../components/SEO';
 import { useTranslation } from '../context/LanguageContext';
+import { dogAge, catAge, petCalorie, petWaterIntake } from '../utils/calculations';
+import { getUnitSystem } from '../utils/localStorage';
 
 export const Home: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+  // Quick Calculator State
+  const [quickPetType, setQuickPetType] = useState<'dog' | 'cat'>('dog');
+  const [quickAge, setQuickAge] = useState<number>(3);
+  const [quickWeight, setQuickWeight] = useState<number>(10);
+  const [unitSystem, setUnitSystem] = useState<'metric' | 'imperial'>(() => {
+    try {
+      return getUnitSystem();
+    } catch {
+      return 'metric';
+    }
+  });
+
+  // Tab State for calculators preview list
+  const [selectedCategory, setSelectedCategory] = useState<'all' | 'dog' | 'cat'>('all');
+
+  const handleToggleUnit = () => {
+    const newSystem = unitSystem === 'metric' ? 'imperial' : 'metric';
+    setUnitSystem(newSystem);
+    if (newSystem === 'imperial') {
+      setQuickWeight(Math.round(quickWeight * 2.20462));
+    } else {
+      setQuickWeight(Math.round(quickWeight / 2.20462));
+    }
+  };
+
+  // Perform quick calculations dynamically
+  const getQuickCalculations = () => {
+    const parsedAge = Number(quickAge) || 0.1;
+    const parsedWeight = Number(quickWeight) || 0.1;
+    const safeAge = Math.max(0.1, Math.min(30, parsedAge));
+    const safeWeight = Math.max(0.1, Math.min(150, parsedWeight));
+
+    let humanAge = 0;
+    let stage = 'Adult';
+    if (quickPetType === 'dog') {
+      let size: 'small' | 'medium' | 'large' | 'giant' = 'medium';
+      const weightKg = unitSystem === 'imperial' ? safeWeight * 0.453592 : safeWeight;
+      if (weightKg < 9) size = 'small';
+      else if (weightKg <= 23) size = 'medium';
+      else if (weightKg <= 41) size = 'large';
+      else size = 'giant';
+      const ageRes = dogAge({ age: safeAge, size });
+      humanAge = Number(ageRes.results[0].value);
+      stage = String(ageRes.results[1].value);
+    } else {
+      const ageRes = catAge({ age: safeAge });
+      humanAge = Number(ageRes.results[0].value);
+      stage = String(ageRes.results[1].value);
+    }
+
+    const calorieRes = petCalorie({ weight: safeWeight, condition: 'normal' }, unitSystem, quickPetType);
+    const calories = Math.round(Number(calorieRes.results[0].value));
+
+    const waterRes = petWaterIntake({ weight: safeWeight, diet: 'dry', activity: 'normal' }, unitSystem, quickPetType);
+    const waterVal = String(waterRes.results[0].value);
+
+    return { humanAge, stage, calories, waterVal };
+  };
+
+  const { humanAge, stage, calories, waterVal } = getQuickCalculations();
 
   const dogTools = allCalculators.filter(c => c.category === 'dog').slice(0, 4);
   const catTools = allCalculators.filter(c => c.category === 'cat').slice(0, 4);
@@ -47,6 +110,10 @@ export const Home: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-10 md:pt-16">
+        {/* Decorative blur backdrop glows */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-200 dark:bg-indigo-950/20 rounded-full blur-3xl opacity-30 -z-10 pointer-events-none"></div>
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-200 dark:bg-purple-950/20 rounded-full blur-3xl opacity-30 -z-10 pointer-events-none"></div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Hero Left Column */}
@@ -61,7 +128,7 @@ export const Home: React.FC = () => {
                 <span>Niche Focused Veterinary Tools</span>
               </motion.div>
               
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-300 leading-tight">
                 {t('home_hero_title')}
               </h1>
               
@@ -86,68 +153,144 @@ export const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Hero Right Column: Mockup Interactive Dashboard Card */}
+            {/* Hero Right Column: Interactive Quick Calculator Card */}
             <motion.div 
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="lg:col-span-5 relative hidden lg:block"
+              className="lg:col-span-5 relative w-full"
             >
               {/* Blur backdrop glow */}
               <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-indigo-500 to-violet-600 opacity-20 blur-xl"></div>
               
-              {/* Mockup Card */}
-              <div className="relative bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-2xl space-y-6">
-                <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-850 pb-4">
+              {/* Calculator Card Container */}
+              <div className="relative bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-2xl space-y-5">
+                <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-850 pb-3">
                   <div className="flex items-center space-x-2">
                     <div className="h-3 w-3 rounded-full bg-rose-500"></div>
                     <div className="h-3 w-3 rounded-full bg-amber-500"></div>
                     <div className="h-3 w-3 rounded-full bg-emerald-500"></div>
                   </div>
                   <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
-                    Live Portion Calculator
+                    Quick Vet Calculator
                   </span>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="space-y-1">
-                    <span className="text-[10px] font-bold text-indigo-500 uppercase tracking-wide">Pet Type & Status</span>
-                    <div className="flex space-x-2">
-                      <span className="px-3 py-1 bg-indigo-50 dark:bg-indigo-950/80 border border-indigo-200 dark:border-indigo-900 rounded-lg text-xs font-semibold text-indigo-600 dark:text-indigo-400 flex items-center space-x-1">
-                        <span>🐶</span>
-                        <span>Active Dog</span>
-                      </span>
-                    </div>
-                  </div>
+                {/* Tab Switcher (Dog vs Cat) */}
+                <div className="grid grid-cols-2 gap-2 p-1 bg-slate-100 dark:bg-slate-900 rounded-xl">
+                  <button
+                    type="button"
+                    onClick={() => setQuickPetType('dog')}
+                    className={`py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center space-x-1.5 ${
+                      quickPetType === 'dog'
+                        ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm'
+                        : 'text-slate-500 hover:text-slate-900 dark:hover:text-slate-200'
+                    }`}
+                  >
+                    <span>🐶</span>
+                    <span>Dog</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setQuickPetType('cat')}
+                    className={`py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center space-x-1.5 ${
+                      quickPetType === 'cat'
+                        ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm'
+                        : 'text-slate-500 hover:text-slate-900 dark:hover:text-slate-200'
+                    }`}
+                  >
+                    <span>🐱</span>
+                    <span>Cat</span>
+                  </button>
+                </div>
 
-                  <div className="space-y-1.5">
-                    <div className="flex justify-between text-xs font-semibold">
-                      <span className="text-slate-500">Target Weight</span>
-                      <span className="text-slate-950 dark:text-white">15 kg</span>
+                {/* Inputs Row */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <label className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wide">Age (years)</label>
+                    <input
+                      type="number"
+                      value={quickAge}
+                      onChange={(e) => setQuickAge(Math.max(0.1, parseFloat(e.target.value) || 0.1))}
+                      step="0.5"
+                      min="0.1"
+                      max="30"
+                      className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:text-white transition-all"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <div className="flex justify-between items-center">
+                      <label className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wide">
+                        Weight ({unitSystem === 'metric' ? 'kg' : 'lbs'})
+                      </label>
+                      <button
+                        type="button"
+                        onClick={handleToggleUnit}
+                        className="text-[9px] font-bold text-indigo-600 dark:text-indigo-400 hover:underline"
+                      >
+                        Swap Unit
+                      </button>
                     </div>
-                    <div className="h-2 bg-slate-150 dark:bg-slate-800 rounded-full overflow-hidden">
-                      <div className="h-full w-2/3 bg-indigo-600 rounded-full"></div>
-                    </div>
+                    <input
+                      type="number"
+                      value={quickWeight}
+                      onChange={(e) => setQuickWeight(Math.max(0.1, parseFloat(e.target.value) || 0.1))}
+                      step="0.5"
+                      min="0.1"
+                      max="150"
+                      className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:text-white transition-all"
+                    />
                   </div>
                 </div>
 
-                {/* Simulated Results Box */}
-                <div className="bg-gradient-to-br from-indigo-50/50 to-violet-50/50 dark:from-indigo-950/20 dark:to-violet-950/20 border border-indigo-100/50 dark:border-indigo-900/30 rounded-2xl p-4 flex items-center justify-between">
-                  <div className="space-y-1">
-                    <span className="text-[10px] text-indigo-950 dark:text-indigo-400 font-semibold block">Daily Calorie Target</span>
-                    <span className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">1,059 <span className="text-xs font-medium text-slate-500">kcal/day</span></span>
+                {/* Display Results Panel */}
+                <div className="grid grid-cols-3 gap-3 pt-1">
+                  {/* Human Age Equivalent */}
+                  <div className="bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-100/50 dark:border-indigo-900/30 rounded-2xl p-3 text-center flex flex-col justify-between h-28 shadow-sm">
+                    <div className="mx-auto w-7 h-7 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+                      <Calendar className="h-3.5 w-3.5" />
+                    </div>
+                    <div>
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Human Age</span>
+                      <span className="text-sm font-extrabold text-slate-900 dark:text-white block mt-0.5">{humanAge} yrs</span>
+                    </div>
+                    <span className="text-[9px] bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 font-bold px-1 py-0.5 rounded-md block truncate self-center w-full max-w-[80px]">{stage}</span>
                   </div>
-                  <div className="h-10 w-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-md">
-                    <Flame className="h-5 w-5" />
+
+                  {/* Calories Needs */}
+                  <div className="bg-amber-50/50 dark:bg-amber-950/20 border border-amber-100/50 dark:border-amber-900/30 rounded-2xl p-3 text-center flex flex-col justify-between h-28 shadow-sm">
+                    <div className="mx-auto w-7 h-7 rounded-lg bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center text-amber-600 dark:text-amber-500">
+                      <Flame className="h-3.5 w-3.5" />
+                    </div>
+                    <div>
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Calories</span>
+                      <span className="text-sm font-extrabold text-slate-900 dark:text-white block mt-0.5">{calories} kcal</span>
+                    </div>
+                    <span className="text-[9px] text-amber-600 dark:text-amber-400 font-bold block">daily target</span>
+                  </div>
+
+                  {/* Water Needs */}
+                  <div className="bg-sky-50/50 dark:bg-sky-950/20 border border-sky-100/50 dark:border-sky-900/30 rounded-2xl p-3 text-center flex flex-col justify-between h-28 shadow-sm">
+                    <div className="mx-auto w-7 h-7 rounded-lg bg-sky-100 dark:bg-sky-900/50 flex items-center justify-center text-sky-600 dark:text-sky-400">
+                      <Droplet className="h-3.5 w-3.5" />
+                    </div>
+                    <div>
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Water</span>
+                      <span className="text-sm font-extrabold text-slate-900 dark:text-white block mt-0.5 leading-none">{waterVal.split(' ')[0]} <span className="text-[9px] font-semibold text-slate-400">{waterVal.split(' ')[1]}</span></span>
+                    </div>
+                    <span className="text-[9px] text-sky-600 dark:text-sky-400 font-bold block">drinking bowl</span>
                   </div>
                 </div>
 
-                <div className="text-[10px] text-slate-400 dark:text-slate-500 flex items-center justify-between border-t border-slate-100 dark:border-slate-850 pt-4">
-                  <span>Standard AAHA Formula</span>
-                  <span className="text-emerald-500 font-semibold flex items-center">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 mr-1 animate-ping"></span>
-                    Operational
-                  </span>
+                <div className="text-[10px] text-slate-400 dark:text-slate-500 flex items-center justify-between border-t border-slate-100 dark:border-slate-850 pt-3">
+                  <span>Calculations utilize clinical metrics</span>
+                  <button 
+                    onClick={() => navigate(quickPetType === 'dog' ? '/dog-tools' : '/cat-tools')}
+                    className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline flex items-center space-x-0.5"
+                  >
+                    <span>Full Tools</span>
+                    <ArrowRight className="h-3 w-3" />
+                  </button>
                 </div>
               </div>
             </motion.div>
@@ -196,67 +339,108 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Dog & Cat Tools Preview Splits */}
+      {/* Category Tabs Tool Gallery */}
       <section className="bg-slate-100/50 dark:bg-slate-950/40 py-16 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          {/* Dog preview */}
-          <div className="space-y-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Essential Dog Calculators</h2>
-                <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">Track age, feeding profiles, and vaccination milestones for dogs.</p>
-              </div>
-              <Link to="/dog-tools" className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 flex items-center hover:underline">
-                <span>All Dog Tools</span>
-                <ArrowRight className="h-4 w-4 ml-1" />
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {dogTools.map((tool) => (
-                <div
-                  key={tool.id}
-                  onClick={() => navigate(`/tools/${tool.id}`)}
-                  className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-sm hover:scale-[1.01] hover:border-indigo-500/30 transition-all cursor-pointer group"
-                >
-                  <h3 className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                    {tool.name}
-                  </h3>
-                  <p className="text-slate-500 dark:text-slate-400 text-xs mt-2 line-clamp-2">
-                    {tool.description}
-                  </p>
-                </div>
-              ))}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          <div className="text-center space-y-2">
+            <h2 className="text-3xl font-black text-slate-900 dark:text-white">Explore Our Calculator Suite</h2>
+            <p className="text-slate-500 dark:text-slate-400">Access clinical-grade calculations for every aspect of your pet's life.</p>
+          </div>
+
+          {/* Pill Tabs Selector */}
+          <div className="flex justify-center">
+            <div className="flex bg-white dark:bg-slate-900 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+              <button
+                onClick={() => setSelectedCategory('all')}
+                className={`px-5 py-2.5 rounded-xl text-xs font-black transition-all flex items-center space-x-1.5 uppercase tracking-wider ${
+                  selectedCategory === 'all'
+                    ? 'bg-indigo-600 text-white shadow-md'
+                    : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
+                }`}
+              >
+                <span>🐾</span>
+                <span>All Tools</span>
+              </button>
+              <button
+                onClick={() => setSelectedCategory('dog')}
+                className={`px-5 py-2.5 rounded-xl text-xs font-black transition-all flex items-center space-x-1.5 uppercase tracking-wider ${
+                  selectedCategory === 'dog'
+                    ? 'bg-indigo-600 text-white shadow-md'
+                    : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
+                }`}
+              >
+                <span>🐶</span>
+                <span>Dog Tools</span>
+              </button>
+              <button
+                onClick={() => setSelectedCategory('cat')}
+                className={`px-5 py-2.5 rounded-xl text-xs font-black transition-all flex items-center space-x-1.5 uppercase tracking-wider ${
+                  selectedCategory === 'cat'
+                    ? 'bg-indigo-600 text-white shadow-md'
+                    : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
+                }`}
+              >
+                <span>🐱</span>
+                <span>Cat Tools</span>
+              </button>
             </div>
           </div>
 
-          {/* Cat preview */}
-          <div className="space-y-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Essential Cat Calculators</h2>
-                <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">Check feline growth scales, water intake goals, and pregnancy timelines.</p>
-              </div>
-              <Link to="/cat-tools" className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 flex items-center hover:underline">
-                <span>All Cat Tools</span>
-                <ArrowRight className="h-4 w-4 ml-1" />
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {catTools.map((tool) => (
-                <div
+          {/* Animated Calculators Grid */}
+          <motion.div 
+            layout 
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            <AnimatePresence mode="popLayout">
+              {(selectedCategory === 'all' 
+                ? allCalculators.slice(0, 8) 
+                : allCalculators.filter(c => c.category === selectedCategory)
+              ).map((tool) => (
+                <motion.div
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
                   key={tool.id}
                   onClick={() => navigate(`/tools/${tool.id}`)}
-                  className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-sm hover:scale-[1.01] hover:border-indigo-500/30 transition-all cursor-pointer group"
+                  className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 rounded-2xl p-5 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-indigo-500/35 transition-all duration-300 cursor-pointer group flex flex-col justify-between h-[160px]"
                 >
-                  <h3 className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                    {tool.name}
-                  </h3>
-                  <p className="text-slate-500 dark:text-slate-400 text-xs mt-2 line-clamp-2">
-                    {tool.description}
-                  </p>
-                </div>
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className={`text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider ${
+                        tool.category === 'dog' 
+                          ? 'bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-400' 
+                          : 'bg-violet-50 text-violet-600 dark:bg-violet-950 dark:text-violet-400'
+                      }`}>
+                        {tool.category}
+                      </span>
+                    </div>
+                    <h3 className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                      {tool.name}
+                    </h3>
+                    <p className="text-slate-500 dark:text-slate-405 text-[11px] mt-1.5 line-clamp-2 leading-relaxed">
+                      {tool.description}
+                    </p>
+                  </div>
+                  <div className="pt-2 flex items-center text-xs font-bold text-indigo-600 dark:text-indigo-400">
+                    <span>Try Calculator</span>
+                    <ArrowRight className="h-3 w-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </motion.div>
               ))}
-            </div>
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Bottom link to Directory */}
+          <div className="text-center pt-4">
+            <Link
+              to="/tools-directory"
+              className="inline-flex items-center space-x-2 bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900/60 px-6 py-3 rounded-xl font-bold hover:bg-indigo-100/50 dark:hover:bg-indigo-950/80 transition-all text-sm shadow-sm"
+            >
+              <span>View Full Directory ({allCalculators.length} tools)</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
@@ -429,16 +613,26 @@ export const Home: React.FC = () => {
             <div key={idx} className="py-4">
               <button
                 onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
-                className="w-full flex items-center justify-between text-left font-bold text-slate-800 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                className="w-full flex items-center justify-between text-left font-bold text-slate-800 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors py-2"
               >
                 <span>{faq.question}</span>
-                <HelpCircle className="h-5 w-5 text-slate-400 flex-shrink-0 ml-4" />
+                <ChevronDown className={`h-5 w-5 text-slate-400 flex-shrink-0 ml-4 transition-transform duration-200 ${activeFaq === idx ? 'transform rotate-180 text-indigo-600 dark:text-indigo-400' : ''}`} />
               </button>
-              {activeFaq === idx && (
-                <p className="mt-3 text-sm text-slate-500 dark:text-slate-400 leading-relaxed bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-100 dark:border-slate-800">
-                  {faq.answer}
-                </p>
-              )}
+              <AnimatePresence initial={false}>
+                {activeFaq === idx && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.2, ease: 'easeInOut' }}
+                    className="overflow-hidden"
+                  >
+                    <p className="mt-3 text-sm text-slate-500 dark:text-slate-400 leading-relaxed bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-100 dark:border-slate-800">
+                      {faq.answer}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>
