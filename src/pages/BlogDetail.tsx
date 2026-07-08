@@ -47,6 +47,15 @@ export const BlogDetail: React.FC = () => {
 
     const elements: React.ReactNode[] = [];
 
+    const parseMarkdownInline = (str: string) => {
+      let parsed = str;
+      // Replace markdown links with clickable links
+      parsed = parsed.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-indigo-600 dark:text-indigo-400 hover:underline">$1</a>');
+      // Replace bold markers with HTML strong tags
+      parsed = parsed.replace(/\*\*([^*]+)\*\*/g, '<strong class="font-semibold text-slate-900 dark:text-white">$1</strong>');
+      return parsed;
+    };
+
     const flushList = (key: number) => {
       if (listItems.length > 0) {
         elements.push(
@@ -69,7 +78,7 @@ export const BlogDetail: React.FC = () => {
               <thead className="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-semibold">
                 <tr>
                   {tableHeaders.map((th, idx) => (
-                    <th key={idx} className="px-4 py-3">{th}</th>
+                    <th key={idx} className="px-4 py-3" dangerouslySetInnerHTML={{ __html: parseMarkdownInline(th) }} />
                   ))}
                 </tr>
               </thead>
@@ -77,7 +86,7 @@ export const BlogDetail: React.FC = () => {
                 {tableRows.map((row, rIdx) => (
                   <tr key={rIdx} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/10">
                     {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="px-4 py-2.5">{cell}</td>
+                      <td key={cIdx} className="px-4 py-2.5" dangerouslySetInnerHTML={{ __html: parseMarkdownInline(cell) }} />
                     ))}
                   </tr>
                 ))}
@@ -135,24 +144,23 @@ export const BlogDetail: React.FC = () => {
       else if (trimmed.startsWith('* ') || trimmed.startsWith('- ')) {
         inList = true;
         const content = trimmed.substring(2);
-        // Replace markdown links with clickable links
-        const parsed = content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-indigo-600 dark:text-indigo-400 hover:underline">$1</a>');
-        listItems.push(parsed);
+        listItems.push(parseMarkdownInline(content));
       } else if (trimmed.match(/^\d+\.\s/)) {
         flushList(index);
         // Basic ordered list rendering
         const content = trimmed.replace(/^\d+\.\s/, '');
+        const parsed = parseMarkdownInline(content);
         elements.push(
           <p key={index} className="pl-4 text-sm text-slate-700 dark:text-slate-300 my-2 leading-relaxed">
-            <span className="font-semibold text-indigo-600 mr-1">{trimmed.match(/^\d+/)?.[0]}.</span> {content}
+            <span className="font-semibold text-indigo-600 mr-1">{trimmed.match(/^\d+/)?.[0]}.</span>
+            <span dangerouslySetInnerHTML={{ __html: parsed }} />
           </p>
         );
       }
       // Handle Paragraphs / Content lines
       else if (trimmed !== '') {
         flushList(index);
-        // Replace markdown links with clickable links
-        const parsed = trimmed.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-indigo-600 dark:text-indigo-400 hover:underline">$1</a>');
+        const parsed = parseMarkdownInline(trimmed);
         elements.push(
           <p key={index} className="text-slate-655 text-sm dark:text-slate-350 leading-relaxed my-4" dangerouslySetInnerHTML={{ __html: parsed }} />
         );

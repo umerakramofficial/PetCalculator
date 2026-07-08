@@ -618,7 +618,7 @@ Select the perfect breed for your specific living dimensions with our [Dog Breed
       role: 'Pet Nutritionist',
       avatar: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: 'https://images.unsplash.com/photo-1544568100-847a948585b9?w=800&h=450&fit=crop',
+    coverImage: '/images/best-dog-toys-for-chewers.jpg',
     content: `
 ## The Psychology and Physiology of Chewing
 
@@ -700,7 +700,7 @@ Estimate your dog's chewing and behavioral needs with our [Dog Behavior Tracker]
       role: 'Chief Veterinary Officer',
       avatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&h=450&fit=crop',
+    coverImage: '/images/how-to-stop-dog-barking.jpg',
     content: `
 ## Why Do Dogs Bark?
 
@@ -799,7 +799,7 @@ Analyze your dog's behavior patterns and track progress with the [Dog Behavior T
       role: 'Feline Specialist',
       avatar: 'https://images.unsplash.com/photo-1594824813573-246434de83fb?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&h=450&fit=crop',
+    coverImage: '/images/best-flea-treatments-for-cats.jpg',
     content: `
 ## Why Flea Prevention is Vital for Feline Health
 
@@ -882,7 +882,7 @@ For a detailed analysis of your cat's weight and medication dosage needs, check 
       role: 'Feline Specialist',
       avatar: 'https://images.unsplash.com/photo-1594824813573-246434de83fb?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: 'https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?w=800&h=450&fit=crop',
+    coverImage: '/images/why-is-my-cat-vomiting.jpg',
     content: `
 ## Dismantling the Myth of the "Normal Vomiting Cat"
 
@@ -963,7 +963,7 @@ Track your cat's daily feeding metrics using the [Cat Feeding Calculator](file:/
       role: 'Pet Nutritionist',
       avatar: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: 'https://images.unsplash.com/photo-1548247416-ec66f4900b2e?w=800&h=450&fit=crop',
+    coverImage: '/images/frisky-cat-food.jpg',
     content: `
 ## Fueling the Energy of a "Frisky" Cat
 
@@ -1038,7 +1038,7 @@ Determine the exact feeding portion and calorie requirements for your cat using 
       role: 'Pet Nutritionist',
       avatar: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&h=450&fit=crop',
+    coverImage: '/images/can-cats-eat-watermelon.jpg',
     content: `
 ## The Feline Palate and Fruits
 
@@ -1105,7 +1105,7 @@ Calculate your cat's daily calorie targets using the [Cat Calorie Calculator](fi
       role: 'Feline Specialist',
       avatar: 'https://images.unsplash.com/photo-1594824813573-246434de83fb?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: 'https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=800&h=450&fit=crop',
+    coverImage: '/images/can-cats-see-in-the-dark.jpg',
     content: `
 ## Feline Night Vision: Separating Fact from Fiction
 
