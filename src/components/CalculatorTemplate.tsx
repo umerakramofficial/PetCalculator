@@ -4,7 +4,6 @@ import { Heart, Share2, Printer, Copy, Info, Check, ArrowRight, BookOpen, AlertT
 import { CalculatorConfig, CalculatorResult } from '../types/calculator';
 import { getFavorites, toggleFavorite, isFavorite, addRecentTool, getUnitSystem, setUnitSystemSetting } from '../utils/localStorage';
 import { allCalculators } from '../data/calculators';
-import { AdSensePlaceholder } from './AdSensePlaceholder';
 import { useTranslation } from '../context/LanguageContext';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid, BarChart, Bar, LineChart, Line } from 'recharts';
 
@@ -421,9 +420,6 @@ export const CalculatorTemplate: React.FC<CalculatorTemplateProps> = ({ config }
         </div>
       </div>
 
-      {/* Ad Zone 1: After Calculator */}
-      <AdSensePlaceholder slot="after-calculator" format="horizontal" />
-
       {/* Deep Educational Material & SEO Content */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-4">
         {/* Guide Content (Left) */}
@@ -529,9 +525,6 @@ export const CalculatorTemplate: React.FC<CalculatorTemplateProps> = ({ config }
               ))}
             </div>
           </div>
-
-          {/* Ad Zone 2: Before FAQ */}
-          <AdSensePlaceholder slot="before-faq" format="rectangle" />
 
           {/* FAQ Accordion Section */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm space-y-4">

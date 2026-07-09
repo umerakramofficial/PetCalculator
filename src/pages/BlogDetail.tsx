@@ -5,7 +5,6 @@ import { ChevronLeft, Calendar, Clock, User, Share2, ArrowRight } from 'lucide-r
 import { blogArticles, getRelatedArticles } from '../data/blog';
 import { SEO } from '../components/SEO';
 import { Breadcrumbs } from '../components/Breadcrumbs';
-import { AdSensePlaceholder } from '../components/AdSensePlaceholder';
 
 export const BlogDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -263,16 +262,10 @@ export const BlogDetail: React.FC = () => {
             />
           </div>
 
-          {/* Ad Slot: After Intro (Google AdSense Compliant Zone) */}
-          <AdSensePlaceholder slot="after-article-intro" format="horizontal" />
-
           {/* Content Body */}
           <div className="article-body">
             {renderMarkdown(article.content)}
           </div>
-
-          {/* Ad Slot: Mid Content */}
-          <AdSensePlaceholder slot="mid-article-content" format="horizontal" />
         </div>
 
         {/* Sidebar & Related Posts (Right) */}
@@ -306,9 +299,6 @@ export const BlogDetail: React.FC = () => {
               ))}
             </div>
           </div>
-
-          {/* Quick Ad Block */}
-          <AdSensePlaceholder slot="sidebar-article" format="rectangle" />
         </div>
       </div>
     </motion.div>
