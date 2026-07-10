@@ -100,7 +100,7 @@ The most efficient way to handle dog hair on clothes is to prevent it from getti
 3. **Dedicated Laundry Sorting:** Never wash extremely hairy pet blankets or dog beds in the same load as your smart office wear or delicate knits. The loose hair will distribute across all garments during the agitation cycle.
 4. **Regular Vacuum Maintenance:** Vacuum carpets and upholstery at least twice a week using a vacuum cleaner equipped with a motorized pet brush roll. Empty the canister frequently to maintain optimal suction.
 
-For a detailed analysis of your dog's daily shedding and grooming needs, check out our [Dog Grooming Calculator](file:///tools/dog-grooming).
+For a detailed analysis of your dog's daily shedding and grooming needs, check out our [Dog Grooming Tips](/blog/dog-grooming-tips) or calculate their [Dog Age in Human Years](/tools/dog-age).
     `
   },
   {
@@ -192,7 +192,7 @@ To ensure the safety of your dog, follow these standard fitting guidelines:
 3. **Weight Adjustments:** Keep a close eye on growing puppies. Check the collar fit weekly, as puppies grow rapidly and can outgrow a collar in a matter of days.
 4. **Remove Indoors:** For safety, remove training collars, martingale collars, and harnesses when your dog is indoors unsupervised to prevent catching on furniture, crates, or other household items.
 
-For more detailed support on training schedules and behavior management, refer to the [Dog Behavior Tracker](file:///tools/dog-behavior).
+For more detailed support on training schedules and behavior management, refer to our [Dog Age Calculator](/tools/dog-age) to understand their mental maturity stage.
     `
   },
   {
@@ -308,7 +308,7 @@ Choosing the right breed is only the first step. To ensure a harmonious relation
 3. **Supervise Interactivity:** Never leave a young child and a dog together unsupervised, regardless of the breed's reputation. Accidental injuries can occur quickly.
 4. **Involve Kids in Care:** Give children age-appropriate tasks, such as filling the water bowl, brushing the dog's coat, or participating in training sessions.
 
-Select the perfect breed for your specific lifestyle parameters using the [Dog Breed Matcher Calculator](file:///tools/dog-breed-matcher).
+Select the perfect breed for your specific lifestyle parameters using our [Dog Tools Directory](/dog-tools).
     `
   },
   {
@@ -397,7 +397,7 @@ Many dogs dislike grooming, but you can build positive associations over time:
 2. **Use High-Value Treats:** Reward your dog throughout the process. Lick mats covered in peanut butter (xylitol-free) stuck to the tub wall are an excellent distraction during baths.
 3. **Handle Paws Daily:** Get your dog used to having their paws touched. Touch their paws, squeeze their toes, and reward them with treats during quiet times.
 
-Calculate your dog's maintenance and hydration needs using our [Dog Care Calculator Suite](file:///tools/dog-water).
+Calculate your dog's maintenance and hydration needs using our [Dog Water Intake Calculator](/tools/dog-water).
     `
   },
   {
@@ -484,7 +484,7 @@ If your dog is exhibiting any of the following symptoms alongside shedding, it c
 * Constant scratching, biting, or licking at their paws and body.
 * Lethargy, weight changes, or changes in thirst.
 
-Calculate your dog's exact calorie and hydration guidelines using the [Dog Calorie Calculator](file:///tools/dog-calorie) and [Dog Water Intake Calculator](file:///tools/dog-water).
+Calculate your dog's exact calorie and hydration guidelines using the [Dog Calorie Calculator](/tools/dog-calorie) and [Dog Water Intake Calculator](/tools/dog-water).
     `
   },
   {
@@ -601,7 +601,7 @@ Living in an apartment means you must establish a structured routine to keep you
 3. **Crate Training is Essential:** Crate training helps your dog feel safe and secure when left alone, preventing destructive chewing and separation barking.
 4. **Desensitize Corridor Sounds:** Spend time training your dog to ignore noises in the hallway. Reward them with high-value treats when they remain quiet.
 
-Select the perfect breed for your specific living dimensions with our [Dog Breed Matcher Calculator](file:///tools/dog-breed-matcher).
+Select the perfect breed for your specific living dimensions with our [Dog Tools Directory](/dog-tools).
     `
   },
   {
@@ -683,7 +683,7 @@ To get the most out of your dog's toys and keep them safe, follow these maintena
 3. **Wash Toys Frequently:** Rubber and nylon toys accumulate bacteria and saliva. Wash them weekly in the top rack of the dishwasher (without detergent) or scrub them with warm water and mild dish soap.
 4. **Size Up:** When in doubt, buy a size larger than recommended for your dog's breed weight. Larger toys are much harder for dogs to get their jaws around.
 
-Estimate your dog's chewing and behavioral needs with our [Dog Behavior Tracker](file:///tools/dog-behavior).
+Estimate your dog's age and maturity level with our [Dog Age Calculator](/tools/dog-age).
     `
   },
   {
@@ -782,7 +782,7 @@ Before diagnosing a behavioral problem, ensure your dog's physical and mental ne
 * **Training Time:** Do you spend 10 minutes daily practicing commands to engage their brain?
 * **Sleep Routine:** Does your dog get 12–14 hours of sleep? Overtired dogs are highly reactive.
 
-Analyze your dog's behavior patterns and track progress with the [Dog Behavior Tracker](file:///tools/dog-behavior).
+Analyze your dog's age and developmental milestones with the [Dog Age Calculator](/tools/dog-age).
     `
   },
   {
@@ -865,7 +865,7 @@ If your cat has fleas, you must treat your home environment to prevent re-infest
 * **Vacuum Daily:** Vacuum all carpets, rugs, baseboards, and upholstered furniture. The vibration of the vacuum stimulates pupae to hatch, exposing them to the flea treatment on your cat or household sprays. Dispose of the vacuum bag immediately.
 * **Treat All Pets:** If you have multiple dogs and cats, you must treat all of them simultaneously. Leaving one pet untreated creates a host reservoir for fleas to breed.
 
-For a detailed analysis of your cat's weight and medication dosage needs, check out the [Cat Care Calculator](file:///tools/cat-water).
+For a detailed analysis of your cat's weight and growth progress, check out the [Cat Weight Calculator](/tools/cat-weight) and [Kitten Growth Calculator](/tools/kitten-growth).
     `
   },
   {
@@ -946,7 +946,7 @@ To find the root cause, your veterinarian may perform:
 ### Safe Supportive Care
 Never give human anti-nausea medications to cats. If your cat is vomiting, withhold food for 2–4 hours to let the stomach settle, but provide fresh water. If the vomiting stops, offer a small amount of a bland diet (boiled chicken breast without skin, bones, or seasoning). If they keep it down, slowly transition them back to their normal food over 3 days.
 
-Track your cat's daily feeding metrics using the [Cat Feeding Calculator](file:///tools/cat-feeding).
+Track your cat's daily feeding metrics using the [Cat Feeding Calculator](/tools/cat-feeding), check their moisture requirements with the [Cat Water Intake Calculator](/tools/cat-water), or calculate their calorie needs with the [Cat Calorie Calculator](/tools/cat-calorie).
     `
   },
   {
@@ -1021,7 +1021,7 @@ To keep your active cat frisky without letting them become overweight:
 2. **Avoid Free-Feeding:** Leaving a bowl of dry kibble out all day encourages overeating out of boredom. Instead, set 3–4 small meal times daily.
 3. **Use Puzzle Feeders:** Feed dry kibble inside puzzle toys or rolling dispensing balls. This forces your active cat to "hunt" for their food, providing vital mental stimulation and physical activity.
 
-Determine the exact feeding portion and calorie requirements for your cat using our [Cat Calorie Calculator](file:///tools/cat-calorie) and [Cat Feeding Calculator](file:///tools/cat-feeding).
+Determine the exact feeding portion and calorie requirements for your cat using our [Cat Calorie Calculator](/tools/cat-calorie) and [Cat Feeding Calculator](/tools/cat-feeding).
     `
   },
   {
@@ -1088,7 +1088,7 @@ If you choose to feed watermelon to your cat, follow these guidelines to prevent
 3. **Feed in Moderation:** Treats should make up no more than 10% of your cat's daily calorie budget. For watermelon, one or two tiny cubes once a week is plenty.
 4. **Monitor After Feeding:** Observe your cat for 24 hours after they eat watermelon for any signs of stomach upset, including vomiting, diarrhea, or loss of appetite. If you notice these symptoms, do not feed fruit to your cat again.
 
-Calculate your cat's daily calorie targets using the [Cat Calorie Calculator](file:///tools/cat-calorie).
+Calculate your cat's daily calorie targets using the [Cat Calorie Calculator](/tools/cat-calorie).
     `
   },
   {
@@ -1159,7 +1159,7 @@ When there is absolute darkness, cats rely on their other senses to navigate:
 2. **Exceptional Hearing:** Cats can hear frequencies up to 64,000 Hz (compared to 20,000 Hz in humans). They can pin-point the exact location of a squeaking mouse in the dark using their swiveling ears.
 3. **Scent Mapping:** Cats use scent glands on their cheeks and body to mark their territory, creating a olfactory map of the house that they can easily follow.
 
-Verify your cat's physical development and age using our [Cat Age Calculator](file:///tools/cat-age).
+Verify your cat's physical development and age using our [Cat Age Calculator](/tools/cat-age).
     `
   }
 ];

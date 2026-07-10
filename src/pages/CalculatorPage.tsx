@@ -48,7 +48,14 @@ export const CalculatorPage: React.FC = () => {
         description={config.seo.metaDescription}
         keywords={config.seo.keywords}
         schemas={[
-          { type: 'FAQ', data: config.seo.faq }
+          { type: 'FAQ', data: config.seo.faq },
+          {
+            type: 'SoftwareApplication',
+            data: {
+              name: config.name,
+              description: config.description
+            }
+          }
         ]}
       />
 

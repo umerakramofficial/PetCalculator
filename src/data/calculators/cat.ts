@@ -35,6 +35,7 @@ export const catCalculators: CalculatorConfig[] = [
           <li><strong>Senior:</strong> 11 to 14 years. Equivalent to 60-72 human years.</li>
           <li><strong>Geriatric:</strong> 15+ years. Requires closer medical monitoring.</li>
         </ul>
+        <p>To monitor your kitten's growth curves and development milestones, use our <a href="/tools/kitten-growth" class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Kitten Growth Calculator</a> and verify their specific daily nutrition needs with the <a href="/tools/cat-feeding" class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Cat Feeding Calculator</a>.</p>
       `,
       examples: [
         { title: 'Cat (Age 1)', steps: ['Rapid kitten phase.', '1 year equivalent = 15 human years.'], result: '15 Human Years' },
@@ -174,6 +175,7 @@ export const catCalculators: CalculatorConfig[] = [
         
         <h3>Dry vs. Wet Food Portions</h3>
         <p>Wet food is highly recommended for cats. It has a high water content (~75%), supporting kidney health and preventing urinary tract issues. Combining wet and dry food is a great way to balance hydration with dental benefits from kibble.</p>
+        <p>To determine your cat's specific daily metabolic targets, use the <a href="/tools/cat-calorie" class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Cat Calorie Calculator</a>, and check their required moisture guidelines using the <a href="/tools/cat-water" class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Cat Water Intake Calculator</a>.</p>
       `,
       examples: [
         { title: '4kg Normal Active Adult Cat', steps: ['RER = 70 * (4 ^ 0.75) = 198 kcal.', 'DER = 198 * 1.2 = 237 kcal/day.', 'Using 3800 kcal/kg food: (237 / 3800) * 1000 = 62g daily.'], result: '62 grams per day (~0.6 cups)' }

@@ -49,6 +49,7 @@ export const dogCalculators: CalculatorConfig[] = [
           <li><strong>Adult:</strong> Finished growing, stable activity (typically 2 to 6 or 7 years).</li>
           <li><strong>Senior:</strong> The last 25% of their expected lifespan (typically 7+ years for small/medium, 5+ for giant).</li>
         </ul>
+        <p>To monitor your dog's growth and nutritional intake at each developmental milestone, use our <a href="/tools/puppy-growth" class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Puppy Growth Calculator</a> and verify their recommended daily food portions using the <a href="/tools/dog-feeding" class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Dog Feeding Calculator</a>.</p>
       `,
       examples: [
         { title: 'Small Dog (Age 3)', steps: ['First year = 15 human years.', 'Second year = 9 human years (Total 24).', 'Third year = +4 human years (Total 28).'], result: '28 Human Years' },
@@ -203,6 +204,7 @@ export const dogCalculators: CalculatorConfig[] = [
         
         <h3>Adjusting for Treats</h3>
         <p>If you feed your dog training treats, remember the 10% rule: treats must make up no more than 10% of their daily calorie budget. Subtract these calories from their main meal portions to ensure weight maintenance.</p>
+        <p>To determine your dog's specific calorie limits, use the <a href="/tools/dog-calorie" class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Dog Calorie Calculator</a>, and calculate their daily hydration needs with the <a href="/tools/dog-water" class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Dog Water Intake Calculator</a>.</p>
       `,
       examples: [
         { title: '20kg Normal Active Adult', steps: ['RER = 70 * (20 ^ 0.75) = 662 kcal.', 'DER = 662 * 1.6 = 1059 kcal/day.', 'Using 3600 kcal/kg food: (1059 / 3600) * 1000 = 294g daily.'], result: '294 grams per day (~3 cups)' }

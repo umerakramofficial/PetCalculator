@@ -106,6 +106,10 @@ export const Home: React.FC = () => {
       <SEO
         title="Smart Dog & Cat Care Calculator Suite"
         description="Calculate pet age in human years, feeding portions, pregnancy calendars, daily calorie needs, and hydration requirements for dogs and cats."
+        schemas={[
+          { type: 'Organization', data: {} },
+          { type: 'FAQ', data: faqs }
+        ]}
       />
 
       {/* Hero Section */}

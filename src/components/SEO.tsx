@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 interface SchemaProps {
-  type: 'FAQ' | 'Article' | 'Organization';
+  type: 'FAQ' | 'Article' | 'Organization' | 'SoftwareApplication';
   data: any;
 }
 
@@ -83,6 +83,51 @@ export const SEO: React.FC<SEOProps> = ({
     const currentUrl = canonicalUrl || window.location.href;
     canonical.setAttribute('href', currentUrl);
 
+    // Open Graph URL
+    let ogUrl = document.querySelector('meta[property="og:url"]');
+    if (!ogUrl) {
+      ogUrl = document.createElement('meta');
+      ogUrl.setAttribute('property', 'og:url');
+      document.head.appendChild(ogUrl);
+    }
+    ogUrl.setAttribute('content', currentUrl);
+
+    // Twitter Card
+    let twitterCard = document.querySelector('meta[name="twitter:card"]');
+    if (!twitterCard) {
+      twitterCard = document.createElement('meta');
+      twitterCard.setAttribute('name', 'twitter:card');
+      document.head.appendChild(twitterCard);
+    }
+    twitterCard.setAttribute('content', 'summary_large_image');
+
+    // Twitter Title
+    let twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (!twitterTitle) {
+      twitterTitle = document.createElement('meta');
+      twitterTitle.setAttribute('name', 'twitter:title');
+      document.head.appendChild(twitterTitle);
+    }
+    twitterTitle.setAttribute('content', `${title} | Pet Calculator`);
+
+    // Twitter Description
+    let twitterDesc = document.querySelector('meta[name="twitter:description"]');
+    if (!twitterDesc) {
+      twitterDesc = document.createElement('meta');
+      twitterDesc.setAttribute('name', 'twitter:description');
+      document.head.appendChild(twitterDesc);
+    }
+    twitterDesc.setAttribute('content', description);
+
+    // Twitter Image
+    let twitterImg = document.querySelector('meta[name="twitter:image"]');
+    if (!twitterImg) {
+      twitterImg = document.createElement('meta');
+      twitterImg.setAttribute('name', 'twitter:image');
+      document.head.appendChild(twitterImg);
+    }
+    twitterImg.setAttribute('content', ogImage);
+
     // Clean up existing dynamic schemas
     const existingSchemas = document.querySelectorAll('script[data-seo-schema]');
     existingSchemas.forEach(el => el.remove());
@@ -137,6 +182,20 @@ export const SEO: React.FC<SEOProps> = ({
             'url': window.location.origin,
             'logo': 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=150&h=150&fit=crop',
             'description': 'Smart Dog & Cat Care Calculator Suite'
+          };
+        } else if (schema.type === 'SoftwareApplication') {
+          schemaObject = {
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            'name': schema.data.name,
+            'description': schema.data.description,
+            'applicationCategory': 'EducationalApplication',
+            'operatingSystem': 'All',
+            'offers': {
+              '@type': 'Offer',
+              'price': '0',
+              'priceCurrency': 'USD'
+            }
           };
         }
 

@@ -175,6 +175,16 @@ export const BlogDetail: React.FC = () => {
     return elements;
   };
 
+  let isoPublishDate = '2026-06-22';
+  try {
+    const parsedDate = new Date(article.publishDate);
+    if (!isNaN(parsedDate.getTime())) {
+      isoPublishDate = parsedDate.toISOString().split('T')[0];
+    }
+  } catch {
+    // fallback
+  }
+
   const breadcrumbs = [
     { name: 'Blog', path: '/blog' },
     { name: article.title }
@@ -199,7 +209,7 @@ export const BlogDetail: React.FC = () => {
               title: article.title,
               image: article.coverImage,
               authorName: article.author.name,
-              publishDate: '2026-06-22',
+              publishDate: isoPublishDate,
               excerpt: article.excerpt
             }
           }

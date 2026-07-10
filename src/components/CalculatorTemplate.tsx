@@ -4,6 +4,7 @@ import { Heart, Share2, Printer, Copy, Info, Check, ArrowRight, BookOpen, AlertT
 import { CalculatorConfig, CalculatorResult } from '../types/calculator';
 import { getFavorites, toggleFavorite, isFavorite, addRecentTool, getUnitSystem, setUnitSystemSetting } from '../utils/localStorage';
 import { allCalculators } from '../data/calculators';
+import { blogArticles } from '../data/blog';
 import { useTranslation } from '../context/LanguageContext';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid, BarChart, Bar, LineChart, Line } from 'recharts';
 
@@ -114,6 +115,15 @@ export const CalculatorTemplate: React.FC<CalculatorTemplateProps> = ({ config }
   const relatedTools = allCalculators
     .filter(c => c.id !== config.id && c.category === config.category)
     .slice(0, 3);
+
+  // Find related articles matching the calculator's pet category
+  const relatedArticles = blogArticles
+    .filter(art => {
+      const categoryMatch = art.category.toLowerCase().includes(config.category);
+      const tagMatch = art.tags.some(t => t.toLowerCase().includes(config.category));
+      return categoryMatch || tagMatch;
+    })
+    .slice(0, 2);
 
   // Render inputs based on active unit system parameters
   const renderInput = (input: any) => {
@@ -525,6 +535,35 @@ export const CalculatorTemplate: React.FC<CalculatorTemplateProps> = ({ config }
               ))}
             </div>
           </div>
+
+          {/* Related Articles */}
+          {relatedArticles.length > 0 && (
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
+              <h3 className="font-bold text-sm text-slate-950 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center">
+                <BookOpen className="h-4 w-4 mr-2 text-indigo-600 dark:text-indigo-400" />
+                Related Care Articles
+              </h3>
+              <div className="space-y-4 mt-4">
+                {relatedArticles.map((art) => (
+                  <button
+                    key={art.id}
+                    onClick={() => navigate(`/blog/${art.slug}`)}
+                    className="w-full text-left p-3 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-indigo-500/40 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all flex items-center justify-between group"
+                  >
+                    <div className="truncate max-w-[80%]">
+                      <span className="text-sm font-semibold text-slate-900 dark:text-white block group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                        {art.title}
+                      </span>
+                      <span className="text-xs text-slate-400 truncate block mt-0.5 font-normal">
+                        {art.excerpt}
+                      </span>
+                    </div>
+                    <ArrowRight className="h-4 w-4 text-slate-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transform group-hover:translate-x-1 transition-all" />
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* FAQ Accordion Section */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm space-y-4">
