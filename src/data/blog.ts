@@ -15,7 +15,7 @@ export const blogArticles: BlogArticle[] = [
       role: 'Chief Veterinary Officer',
       avatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: '/images/dog-hair-clothes.jpg',
+    coverImage: '/images/dog-hair-clothes.webp',
     content: `
 ## The Physics of Pet Hair Adhesion
 
@@ -117,7 +117,7 @@ For a detailed analysis of your dog's daily shedding and grooming needs, check o
       role: 'Chief Veterinary Officer',
       avatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: '/images/dog-training-collars.jpg',
+    coverImage: '/images/dog-training-collars.webp',
     content: `
 ## Training Collars: Communication vs. Control
 
@@ -209,7 +209,7 @@ For more detailed support on training schedules and behavior management, refer t
       role: 'Chief Veterinary Officer',
       avatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: '/images/family-dog.jpg',
+    coverImage: '/images/family-dog.webp',
     content: `
 ## What Makes a Breed "Family-Friendly"?
 
@@ -325,7 +325,7 @@ Select the perfect breed for your specific lifestyle parameters using our [Dog T
       role: 'Pet Nutritionist',
       avatar: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: '/images/dog-grooming.jpg',
+    coverImage: '/images/dog-grooming.webp',
     content: `
 ## Why Grooming is Essential for Canine Wellness
 
@@ -414,7 +414,7 @@ Calculate your dog's maintenance and hydration needs using our [Dog Water Intake
       role: 'Pet Nutritionist',
       avatar: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: '/images/dog-shedding.jpg',
+    coverImage: '/images/dog-shedding.webp',
     content: `
 ## The Natural Shedding Cycle of Dogs
 
@@ -501,7 +501,7 @@ Calculate your dog's exact calorie and hydration guidelines using the [Dog Calor
       role: 'Feline Specialist',
       avatar: 'https://images.unsplash.com/photo-1594824813573-246434de83fb?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: '/images/apartment-dogs.jpg',
+    coverImage: '/images/apartment-dogs.webp',
     content: `
 ## What Makes a Dog Good for Apartment Living?
 
@@ -618,7 +618,7 @@ Select the perfect breed for your specific living dimensions with our [Dog Tools
       role: 'Pet Nutritionist',
       avatar: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: '/images/best-dog-toys-for-chewers.jpg',
+    coverImage: '/images/best-dog-toys-for-chewers.webp',
     content: `
 ## The Psychology and Physiology of Chewing
 
@@ -700,7 +700,7 @@ Estimate your dog's age and maturity level with our [Dog Age Calculator](/tools/
       role: 'Chief Veterinary Officer',
       avatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: '/images/how-to-stop-dog-barking.jpg',
+    coverImage: '/images/how-to-stop-dog-barking.webp',
     content: `
 ## Why Do Dogs Bark?
 
@@ -799,7 +799,7 @@ Analyze your dog's age and developmental milestones with the [Dog Age Calculator
       role: 'Feline Specialist',
       avatar: 'https://images.unsplash.com/photo-1594824813573-246434de83fb?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: '/images/best-flea-treatments-for-cats.jpg',
+    coverImage: '/images/best-flea-treatments-for-cats.webp',
     content: `
 ## Why Flea Prevention is Vital for Feline Health
 
@@ -882,7 +882,7 @@ For a detailed analysis of your cat's weight and growth progress, check out the 
       role: 'Feline Specialist',
       avatar: 'https://images.unsplash.com/photo-1594824813573-246434de83fb?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: '/images/why-is-my-cat-vomiting.jpg',
+    coverImage: '/images/why-is-my-cat-vomiting.webp',
     content: `
 ## Dismantling the Myth of the "Normal Vomiting Cat"
 
@@ -963,7 +963,7 @@ Track your cat's daily feeding metrics using the [Cat Feeding Calculator](/tools
       role: 'Pet Nutritionist',
       avatar: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: '/images/frisky-cat-food.jpg',
+    coverImage: '/images/frisky-cat-food.webp',
     content: `
 ## Fueling the Energy of a "Frisky" Cat
 
@@ -1038,7 +1038,7 @@ Determine the exact feeding portion and calorie requirements for your cat using 
       role: 'Pet Nutritionist',
       avatar: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: '/images/can-cats-eat-watermelon.jpg',
+    coverImage: '/images/can-cats-eat-watermelon.webp',
     content: `
 ## The Feline Palate and Fruits
 
@@ -1105,7 +1105,7 @@ Calculate your cat's daily calorie targets using the [Cat Calorie Calculator](/t
       role: 'Feline Specialist',
       avatar: 'https://images.unsplash.com/photo-1594824813573-246434de83fb?w=150&h=150&fit=crop&crop=face'
     },
-    coverImage: '/images/can-cats-see-in-the-dark.jpg',
+    coverImage: '/images/can-cats-see-in-the-dark.webp',
     content: `
 ## Feline Night Vision: Separating Fact from Fiction
 

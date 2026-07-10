@@ -524,6 +524,9 @@ export const Home: React.FC = () => {
                   <img
                     src={guide.coverImage}
                     alt={guide.title}
+                    loading="lazy"
+                    width="400"
+                    height="225"
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -575,6 +578,9 @@ export const Home: React.FC = () => {
                   <img
                     src={art.coverImage}
                     alt={art.title}
+                    loading="lazy"
+                    width="400"
+                    height="250"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <span className="absolute top-4 left-4 bg-white/95 dark:bg-slate-900/95 text-[10px] font-bold text-slate-800 dark:text-slate-200 px-2 py-0.5 rounded uppercase">
